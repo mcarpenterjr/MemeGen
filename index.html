@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link href="Styles/style.css" rel="stylesheet"/>
+  <link href="styles/style.css" rel="stylesheet"/>
+  <link href="styles/responsive.css" rel="stylesheet"/>
   <link href='http://fonts.googleapis.com/css?family=Overlock:400,700|
               Oswald|Roboto:400,400italic,700,700italic|Bangers|Orbitron:900,400'
         rel='stylesheet' type='text/css'>
@@ -20,255 +21,54 @@
   
 <body>
 <div class="container">
-  <div class="header">
-    <div class="namespace">
-      <h1>Mark N Carpenter Jr</h1>
-      <h3>Front-End Ninja (Always, Mobile First)</h3>
-      <br>
-      <h3>NOW WITH HTML5 CANVAS!</h3>
+    <div class="header">
+        <div class="namespace">
+            <h1>Mark N Carpenter Jr</h1>
+            <h3>Front-End Ninja (Always, Mobile First)</h3>
+            <br>
+            <h3>NOW WITH HTML5 CANVAS!</h3>
+        </div>
     </div>
-  </div>
-  <div class="memegen">
-    <canvas id="memespace" width="500" height="500" style="border:1px dashed white">
-      Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
-    </canvas>
-    <br />
-        <span id="controls">
-          Scale&nbsp;<input id='scale' type='range' min='0.05' max='4' value='1' step='0.01' style="width:40%"/>
-          <input id='rotate' type='range' min='-180' max='180' value='0' step='1' style="width:40%"/>&nbsp;Rotate<br />
-          <span>Top Line:</span>
-          <input id="topLineText" type="text" value='yes i have a beard' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
-          <span>Bottom Line:</span>
-          <input id="bottomLineText" type="text" value='it is awesome...' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
-          <br />
-          <span style="width:45%;float:left">Load image: <input type="file" id="fileInput" name="imageLoader" /></span>
-          <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
-          <input type='button' id='save' value='Save online' /></span>
-        </span>
-          <span id="spinner-div" style="display:none"><img src='assets/spinner-128.gif' width='24' height='24' id='spinner' /></span>
-  </div>
-  <div class="footer">
-    <div class="wrapper">
-      <div class="social">
-        <a href="http://www.facebook.com/mcarpenterjr" target="_blank"></a>
-      </div>
-      <div class="social">
-        <a href="https://twitter.com/xXSirenSxOpusXx" target="_blank"></a>
-      </div>
-      <div class="social">
-        <a href="https://plus.google.com/115187923991364057968/posts" target="_blank"></a>
-      </div>
-      <div class="social">
-        <a href="https://www.linkedin.com/pub/mark-carpenter-jr/37/12b/b45" target="_blank"></a>
-      </div>
+    <div class="memegen">
+        <canvas id="memespace">
+          Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
+        </canvas>
+      <br />
+            <span id="controls">
+                Scale&nbsp;<input id='scale' type='range' min='0.05' max='4' value='1' step='0.01' style="width:40%"/>
+                <input id='rotate' type='range' min='-180' max='180' value='0' step='1' style="width:40%"/>&nbsp;Rotate<br />
+                <span>Top Line:</span>
+                <input id="topLineText" type="text" value='yes i have a beard' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
+                <span>Bottom Line:</span>
+                <input id="bottomLineText" type="text" value='it is awesome...' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
+                <br />
+                <span style="width:45%;float:left">Load image: <input type="file" capture="camera" id="fileInput" name="imageLoader" /></span>
+                <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
+                <input type='button' id='save' value='Save online' /></span>
+            </span>
+            <span id="spinner-div" style="display:none"><img src='assets/spinner-128.gif' width='24' height='24' id='spinner' /></span>
     </div>
-  </div>
+    <div class="footer">
+        <div class="wrapper">
+            <div class="social">
+                <a href="http://www.facebook.com/mcarpenterjr" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://twitter.com/xXSirenSxOpusXx" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://plus.google.com/115187923991364057968/posts" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://www.linkedin.com/pub/mark-carpenter-jr/37/12b/b45" target="_blank"></a>
+            </div>
+        </div>
+    </div>
 </div>
   
-  <img src='assets/bsc.jpg' style='display:none' class='mfnotransform' id='sample-image'/>
+    <img src='assets/bsc.jpg' style='display:none' class='mfnotransform' id='sample-image'/>
 
-
- 
-
-
-<script>
-
-   var canvas;
-   var canvasWidth;
-   var ctx;
-   var x;
-   var y;
-   var download;
-   var data;
-   var fileInput;
-   var img;
-
-
-  window.onload = function() {
-
-
-    prepareExample();
-  }
-
-  function prepareExample() {
-    img = document.getElementById('sample-image');
+    <script src="js/engine.js"></script>
     
-    var deviceWidth = window.innerWidth;;
-      canvasWidth = Math.min(600, deviceWidth-20);
-  canvasHeight = Math.min(480, deviceWidth-20);
-    canvas = document.getElementById('memespace');
-
-
-  canvas.width = canvasWidth;
-  canvas.height = canvasHeight;
-    ctx = canvas.getContext('2d');
-
-     x = canvas.width/2 - img.width/2;
-     y = canvas.height/2 - img.height/2;
-
-    ctx.drawImage(img, x, y);
-
-    ctx.textAlign = 'center';
-    ctx.lineWidth  = 4;
-    ctx.font = '24pt impact';
-    ctx.strokeStyle = 'black';
-    ctx.fillStyle = 'white';
-    doTransform();
-  
-
-    fileInput = document.getElementById('fileInput');
-
-  fileInput.addEventListener('change', function(e) {
-    
-    var reader = new FileReader();
-    reader.onload = function(event){
-
-        img.onload = function(){
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            document.getElementById('scale').value = 1;
-            document.getElementById('rotate').value = 0;
-                 x = canvas.width/2 - img.width/2;
-     y = canvas.height/2 - img.height/2;
-            ctx.drawImage(img,x,y);
-            //imgTransform();
-        }
-        img.src = reader.result;
-    }
-    reader.readAsDataURL(fileInput.files[0]);     
-
-
-
-
-   }, false);
-
-   var controls = document.getElementById('controls');
-   var save = document.getElementById('save');
-   save.addEventListener('click', function(e) {
-     controls.style.display = 'none';
-     document.getElementById('spinner-div').style.display='inline';
-     var data = canvas.toDataURL();
-
-     request = $.ajax({
-          url: "/meme/save",
-          type: "post",
-          data: data
-      });
-
-      // callback handler that will be called on success
-      request.done(function (response, textStatus, jqXHR){
-          // log a message to the console
-          window.location.href = '/meme/view/'+response;
-      });
-    }, false);
-
-    scale = document.getElementById('scale');
-    scale.addEventListener('change', doTransform, false);
-
-    rotate = document.getElementById('rotate');
-    rotate.addEventListener('change', doTransform, false);
-
-    download = document.getElementById('img-download');
-    download.addEventListener('click', prepareDownload, false);
-
-    ctx.textAlign = 'center';
-    ctx.lineWidth  = 4;
-    ctx.font = '24pt impact';
-    ctx.strokeStyle = 'black';
-    ctx.fillStyle = 'white';
-
-  }
-
-  function doTransform() {
-    ctx.save();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Translate to center so transformations will apply around this point
-    ctx.translate(canvas.width/2, canvas.height/2);
-
-    // Perform scale
-    var val = document.getElementById('scale').value;
-    ctx.scale(val,val);
-
-    // Perform rotation
-    val = document.getElementById('rotate').value;
-    ctx.rotate(val*Math.PI/180);
-
-    // Reverse the earlier translation
-    ctx.translate(-canvas.width/2, -canvas.height/2);
-
-    // Finally, draw the image
-    ctx.drawImage(img, x, y);
-
-    ctx.restore();
-
-    var inputTop = document.getElementById('topLineText').value;
-    var inputBottom = document.getElementById('bottomLineText').value;
-    
-    inputTop = inputTop.toUpperCase();
-    inputBottom = inputBottom.toUpperCase();
-    
-    //ctx.strokeText(text, canvas.width/2 , canvas.height - canvas.height/4 );
-    //ctx.fillText(text, canvas.width/2 , canvas.height - canvas.height/4 );
-    wrapTextTop(ctx, inputTop, canvas.width/2, canvas.height - canvas.height/1.125, canvasWidth-canvasWidth/3, 30);
-    wrapTextBottom(ctx, inputBottom, canvas.width/2, canvas.height - canvas.height/8.125, canvasWidth-canvasWidth/3, 30);
-    // var length = ctx.measureText(text);
-    // x = canvas.width/2;// - length/2;
-    // y = canvas.height - canvas.height/4.5;
-    // ctx.strokeText(text, x, y);
-    // ctx.fillText(text, x, y);
-  }
-
-
-  function prepareDownload() {
-    var data = canvas.toDataURL();
-    download.href = data;
-  }
-
-  // Modified from http://www.html5canvastutorials.com/tutorials/html5-canvas-wrap-text-tutorial/
-  function wrapTextTop(ctx, inputTop, x, y, maxWidth, lineHeight) {
-    var words = inputTop.split(' ');
-    var line = '';
-
-    for(var n = 0; n < words.length; n++) {
-      var testLine = line + words[n] + ' ';
-      var metrics = ctx.measureText(testLine);
-      var testWidth = metrics.width;
-      if (testWidth > maxWidth && n > 0) {
-        ctx.strokeText(line, x, y);
-        ctx.fillText(line, x, y);
-        line = words[n] + ' ';
-        y += lineHeight;
-      }
-      else {
-        line = testLine;
-      }
-    }
-    ctx.strokeText(line, x, y);
-    ctx.fillText(line, x, y);
-  }
-  function wrapTextBottom(ctx, inputBottom, x, y, maxWidth, lineHeight) {
-    var words = inputBottom.split(' ');
-    var line = '';
-
-    for(var n = 0; n < words.length; n++) {
-      var testLine = line + words[n] + ' ';
-      var metrics = ctx.measureText(testLine);
-      var testWidth = metrics.width;
-      if (testWidth > maxWidth && n > 0) {
-        ctx.strokeText(line, x, y);
-        ctx.fillText(line, x, y);
-        line = words[n] + ' ';
-        y += lineHeight;
-      }
-      else {
-        line = testLine;
-      }
-    }
-    ctx.strokeText(line, x, y);
-    ctx.fillText(line, x, y);
-  }
-
-</script>
-  
 </body>
 </html>

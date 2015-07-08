@@ -65,7 +65,7 @@ span a:hover {
 }
 
 .footer {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 15px;
 }
 
@@ -90,4 +90,21 @@ span a:hover {
   cursor: pointer;
   box-shadow: 1px 4px 6px #634271, 0 0 0 #000, 1px 4px 6px #634271;
   text-shadow: 1px 4px 6px #634271, 0 0 0 #000, 1px 4px 6px #634271;
+}
+   
+
+    /*
+    *
+    *   This styles the canvas.
+    *   Width/Height No PX
+    *
+    */
+        
+#memespace {                
+    border: 1px;            
+    border-color: #ffffff;
+    border-style: dashed;
+    width: 500;
+    height: 500;
+    margin-bottom: 10px;
 }
