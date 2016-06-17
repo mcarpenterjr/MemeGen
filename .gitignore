@@ -1,3 +1,10 @@
+# Configuration Details
+*.ini
+
+# Package Management
+node_modules/
+bower_components/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
