@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link href="css/materialize.css" rel="stylesheet"/>
+  <link href="css/sweetalet.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
+  <link href='http://fonts.googleapis.com/css?family=Overlock:400,700|
+              Oswald|Roboto:400,400italic,700,700italic|Bangers|Orbitron:900,400'
+        rel='stylesheet' type='text/css'>
+  <link href='http://weloveiconfonts.com/api/?family=entypo' rel='stylesheet' type='text/css'>
+  <title>Meme... He said Meeemeee.</title>
+  <style>
+    #image-container {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="namespace">
+            <h1>Mark N Carpenter Jr</h1>
+            <h3>Front-End Ninja (Always, Mobile First)</h3>
+            <br>
+            <h3>NOW WITH HTML5 CANVAS!</h3>
+        </div>
+    </div>
+    <div class="memegen">
+        <canvas id="memespace">
+          Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
+        </canvas>
+      <br />
+            <span id="controls">
+                Scale&nbsp;<input id='scale' type='range' min='0.05' max='4' value='1' step='0.01' style="width:40%"/>
+                <input id='rotate' type='range' min='-180' max='180' value='0' step='1' style="width:40%"/>&nbsp;Rotate<br />
+                <span>Top Line:</span>
+                <input id="topLineText" type="text" value='yes i have a beard' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
+                <span>Bottom Line:</span>
+                <input id="bottomLineText" type="text" value='it is awesome...' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%"/>
+                <br />
+                <span style="width:45%;float:left">Load image: <input type="file" capture="camera" id="fileInput" name="imageLoader" /></span>
+                <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
+                <input type='button' id='save' value='Save online' /></span>
+            </span>
+            <span id="spinner-div" style="display:none"><img src='img/key/spinner-128.gif' width='24' height='24' id='spinner'/></span>
+    </div>
+    <div class="footer">
+        <div class="wrapper">
+            <div class="social">
+                <a href="http://www.facebook.com/mcarpenterjr" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://twitter.com/xXSirenSxOpusXx" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://plus.google.com/115187923991364057968/posts" target="_blank"></a>
+            </div>
+            <div class="social">
+                <a href="https://www.linkedin.com/pub/mark-carpenter-jr/37/12b/b45" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <img src='img/key/bsc.jpg' style='display:none' class='mfnotransform' id='sample-image'/>
+
+    <script src="js/engine.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/sweetalert-dev.js"></script>
+
+</body>
+</html>
