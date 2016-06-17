@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+pro<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -44,17 +44,20 @@
       </canvas>
       <br />
       <span id="controls">
-                Scale&nbsp;<input id='scale' type='range' min='0.05' max='4' value='1' step='0.01' style="width:40%"/>
-                <input id='rotate' type='range' min='-180' max='180' value='0' step='1' style="width:40%"/>&nbsp;Rotate<br />
-                <span>Top Line:</span>
-      <input id="topLineText" type="text" value='yes i have a beard' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%" />
-      <span>Bottom Line:</span>
-      <input id="bottomLineText" type="text" value='it is awesome...' onkeyup='doTransform()' oninput='doTransform' onpaste='doTransform' style="width:35%" />
-
-      <!--
+      <div class="row">
+        <p class="range-field col s6">
+          <input id="scale" type="range" min="0.05" max="4" value="1" step="0.01"/>
+          <label for="scale">Image Scale</label>
+        </p>
+        <p class="range-field col s6">
+          <input id="rotate" type="range" min="-180" max="180" value="0" step="1"/>
+          <label for="rotate">Image Rotation</label>
+        </p>
+      </div>
+      <!-- Text Input -->
         <div class="row">
           <div class="input-field col s6">
-            <input id="topLineText" type="text" value="yes i have a bead" onkeyup='dotransform()' oninput='dotransform' onpaste='dotransform'>
+            <input id="topLineText" type="text" value="yes i have a beard" onkeyup='dotransform()' oninput='dotransform' onpaste='dotransform'>
             <label for="topLineText">Top Line:</label>
           </div>
           <div class="input-field col s6">
@@ -62,7 +65,7 @@
             <label for="bottomLineText">Bottom Line:</label>
           </div>
         </div>
-  -->
+
       <br />
       <span style="width:45%;float:left">Load image: <input type="file" capture="camera" id="fileInput" name="imageLoader" /></span>
       <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
