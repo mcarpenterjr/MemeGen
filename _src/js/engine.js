@@ -19,7 +19,9 @@ function prepareExample() {
     var deviceWidth = window.innerWidth;;
     canvasWidth = Math.min(600, deviceWidth-20);
     canvasHeight = Math.min(480, deviceWidth-20);
-    canvas = document.getElementById('memespace');
+    // JIC jQuery Selector by type does not work.
+    //canvas = $('canvas');
+    canvas = document.getElementById('memeSpace');
 
 
     canvas.width = canvasWidth;

@@ -1,4 +1,5 @@
-pro<!DOCTYPE html>
+pro
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -15,46 +16,50 @@ pro<!DOCTYPE html>
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Overlock:400,700|
               Oswald|Roboto:400,400italic,700,700italic|Bangers|Orbitron:900,400' type='text/css'>
   <title>Meme... He said Meeemeee.</title>
-  <style>
-    #image-container {
-      display: flex;
-    }
-  </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <div class="card-panel grey lighten-5 z-depth-2">
-          <div class="row valign-wrapper">
-            <div class="col s12">
-              <h3>Mark N Carpenter Jr.</h3>
-              <h5>Frontend Web Developer</h5>
-              <div class="divider"></div>
-              <p>"Now With EVEN MORE Canvas!"</p>
+    <div class="section">
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+              <div class="col s12">
+                <h3>Mark N Carpenter Jr.</h3>
+                <h5>Frontend Web Developer</h5>
+                <div class="divider"></div>
+                <p>"Now With EVEN MORE Canvas!"</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="section memegen">
-      <canvas id="memespace">
-        Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
-      </canvas>
-      <br />
-      <span id="controls">
+    <div class="section">
       <div class="row">
-        <p class="range-field col s6">
-          <input id="scale" type="range" min="0.05" max="4" value="1" step="0.01"/>
-          <label for="scale">Image Scale</label>
-        </p>
-        <p class="range-field col s6">
-          <input id="rotate" type="range" min="-180" max="180" value="0" step="1"/>
-          <label for="rotate">Image Rotation</label>
-        </p>
+        <div class="col s12">
+          <canvas id="memeSpace">
+            Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
+          </canvas>
+        </div>
       </div>
-      <!-- Text Input -->
+      <div class="card-panel z-depth-2">
+        <div class="row">
+          <div class="col s6">
+            <p class="range-field">
+              <input id="scale" type="range" min="0.05" max="4" value="1" step="0.01" />
+              <label for="scale">Image Scale</label>
+            </p>
+          </div>
+          <div class="col s6">
+            <p class="range-field">
+              <input id="rotate" type="range" min="-180" max="180" value="0" step="1" />
+              <label for="rotate">Image Rotation</label>
+            </p>
+          </div>
+        </div>
+        <!-- Text Input -->
         <div class="row">
           <div class="input-field col s6">
             <input id="topLineText" type="text" value="yes i have a beard" onkeyup='dotransform()' oninput='dotransform' onpaste='dotransform'>
@@ -66,37 +71,33 @@ pro<!DOCTYPE html>
           </div>
         </div>
 
-      <br />
-      <span style="width:45%;float:left">Load image: <input type="file" capture="camera" id="fileInput" name="imageLoader" /></span>
-      <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
+        <br />
+        <span style="width:45%;float:left">Load image: <input type="file" capture="camera" id="fileInput" name="imageLoader" /></span>
+        <span style="width:45%;float:right"><a href="" id="img-download" download="you-got-memed.png" >Download image</a> OR
                 <input type='button' id='save' value='Save online' /></span>
-      </span>
+      </div>
       <span id="spinner-div" style="display:none"><img src='img/key/spinner-128.gif' width='24' height='24' id='spinner'/></span>
     </div>
-    <div class="footer">
-      <div class="wrapper">
-        <div class="social">
-          <a href="http://www.facebook.com/mcarpenterjr" target="_blank"></a>
-        </div>
-        <div class="social">
-          <a href="https://twitter.com/xXSirenSxOpusXx" target="_blank"></a>
-        </div>
-        <div class="social">
-          <a href="https://plus.google.com/115187923991364057968/posts" target="_blank"></a>
-        </div>
-        <div class="social">
-          <a href="https://www.linkedin.com/pub/mark-carpenter-jr/37/12b/b45" target="_blank"></a>
+    <footer class="page-footer indigo">
+      <div class="container">
+        <div class="row">
+
         </div>
       </div>
-    </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2016 Copyright Mark N Carpenter Jr
+        </div>
+      </div>
+    </footer>
   </div>
 
   <img src='img/key/bsc.jpg' style='display:none' class='mfnotransform' id='sample-image' />
 
-  <script src="js/engine.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/sweetalert-dev.js"></script>
+  <script src="js/engine.js"></script>
 
 </body>
 
