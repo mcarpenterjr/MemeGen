@@ -35,7 +35,7 @@
     </div>
     <div class="section">
       <div class="row">
-        <canvas id="memeSpace" class="col s12">
+        <canvas id="memeSpace" class="col s12 card-panel grey lighten-2 z-depth-3">
           Sorry... Your browser doesn't support canvas... Try Googling "Chrome".
         </canvas>
       </div>
@@ -68,7 +68,7 @@
 
         <!-- File Functions -->
         <div class="row">
-          <div class="file-field input-field col m12 l6">
+          <div class="file-field input-field col push-m3 s12 m6">
             <div class="btn">
               <span>File</span>
               <input type="file" capture="camera" id="fileInput" name="imageLoader">
@@ -77,7 +77,9 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-          <div class="col m12 l6">
+        </div>
+        <div class="row">
+          <div class="col s12">
             <div class="left">
               <button class="waves-effect btn" id="save">save
                 <i class="fa fa-floppy-o right"></i>
@@ -91,6 +93,7 @@
       </div>
       <span id="spinner-div" style="display:none"><img src='img/key/spinner-128.gif' width='24' height='24' id='spinner'/></span>
     </div>
+  </div>
 
     <footer class="page-footer indigo">
       <div class="container">
@@ -104,7 +107,6 @@
         </div>
       </div>
     </footer>
-  </div>
 
   <img src='img/key/bsc.jpg' style='display:none' class='mfnotransform' id='sample-image' />
 
