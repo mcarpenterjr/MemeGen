@@ -11,12 +11,12 @@ var img;
 
 window.onload = function() {
      prepareExample();
-}
+};
 
 function prepareExample() {
     img = document.getElementById('sample-image');
 
-    var deviceWidth = window.innerWidth;;
+    var deviceWidth = window.innerWidth;
     canvasWidth = Math.min(600, deviceWidth-20);
     canvasHeight = Math.min(480, deviceWidth-20);
     // JIC jQuery Selector by type does not work.
@@ -56,9 +56,9 @@ function prepareExample() {
                 y = canvas.height/2 - img.height/2;
                 ctx.drawImage(img,x,y);
                 //imgTransform();
-            }
+            };
             img.src = reader.result;
-        }
+        };
     reader.readAsDataURL(fileInput.files[0]);
 
     }, false);
