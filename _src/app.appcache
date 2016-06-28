@@ -1,0 +1,22 @@
+# 6-27-2016 V1
+# MEMEGenerator
+
+CACHE MANIFEST:
+/index.html
+#CSS Files
+/css/materialize.css
+/css/style.css
+/css/sweetalert.css
+# Images
+/img/key/bsc.jpg
+/img/key/spinner-128.jpg
+# JS Files
+/js/engine.js
+/js/jquery.js
+/js/materialize.js
+/js/sweetalert-dev.js
+
+NETWORK:
+*
+
+FALLBACK:
