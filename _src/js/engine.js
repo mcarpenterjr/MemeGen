@@ -162,6 +162,9 @@ function prepareExample() {
   document.querySelector('#vibrant').onclick = function() {
     manipulateImage("vibrant");
   };
+  document.querySelector('#nightvision').onclick = function() {
+    manipulateImage("nightvision");
+  };
   document.querySelector('#revert').onclick = function() {
     revertImage();
   };
