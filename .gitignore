@@ -1,5 +1,7 @@
 # Configuration Details
 *.ini
+ssl_keys/
+.well-known/
 
 # Package Management
 node_modules/
