@@ -14,11 +14,9 @@ window.onload = function() {
 };
 
 function prepareExample() {
-
+  var deviceWidth = window.screen.width;
 
   img = document.getElementById('sample-image');
-
-  var deviceWidth = window.innerWidth;
   canvasWidth = Math.min(600, deviceWidth - 20);
   canvasHeight = Math.min(480, deviceWidth - 20);
   // JIC jQuery Selector by type does not work.
@@ -86,75 +84,62 @@ function prepareExample() {
 
   }, false);
 
-  //**********************************//
-  //*  Start Of Image filter section *//
-  //*  Uses A Service worker         *//
-
-  var original;
-  var imageWorker = new Worker('js/worker.js');
-
   // greys out the buttons while manipulation is happening
   // un-greys out the buttons when the manipulation is done
   function toggleButtonsAbledness() {
     var buttons = document.querySelectorAll('button');
     for (var i = 0; i < buttons.length; i++) {
       if (buttons[i].hasAttribute('disabled')) {
-        buttons[i].removeAttribute('disabled');
+        buttons[i].removeAttribute('disabled')
       } else {
         buttons[i].setAttribute('disabled', null);
       }
-    }
+    };
   }
 
   function manipulateImage(type) {
+    original = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var imageWorker = new Worker('js/worker.js');
     var a, b, g, i, imageData, j, length, pixel, r, ref;
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
     toggleButtonsAbledness();
-    imageWorker.postMessage({
-        'imageData': imageData, 'type': type
-    });
+
+    imageWorker.postMessage({'imageData':imageData, 'type': type});
+
+    /*length = imageData.data.length / 4;
+    for (i = j = 0, ref = length; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
+      r = imageData.data[i * 4 + 0];
+      g = imageData.data[i * 4 + 1];
+      b = imageData.data[i * 4 + 2];
+      a = imageData.data[i * 4 + 3];
+      pixel = manipulate(type, r, g, b, a);
+      imageData.data[i * 4 + 0] = pixel[0];
+      imageData.data[i * 4 + 1] = pixel[1];
+      imageData.data[i * 4 + 2] = pixel[2];
+      imageData.data[i * 4 + 3] = pixel[3];
+    }*/
 
     imageWorker.onmessage = function(e) {
-    toggleButtonsAbledness();
-    var image = e.data;
-    if (image) return ctx.putImageData(e.data, 0, 0);
-    console.log("No ManipulatedImage Returned");
-    Materialize.toast('Image Un-Touched', 6000);
-    };
+      toggleButtonsAbledness();
+      var image = e.data;
+      if (image) return ctx.putImageData(e.data, 0, 0);
+      console.log("No manipulated image returned");
+    }
 
     imageWorker.onerror = function(error) {
-        function WorkerException(message) {
-            this.name = 'WorkerException';
-            this.message = message;
-        }
-        throw new WorkerException('Worker ERRORED!');
+      function WorkerException (message) {
+        this.name = 'WorkerException';
+        this.message = message;
+      };
+      throw new WorkerException('Worker error.');
     };
 
-    return ctx.putImageData(imageData, 0, 0);
-  }
+  };
 
   function revertImage() {
     return ctx.putImageData(original, 0, 0);
   }
-
-  document.querySelector('#invert').onclick = function() {
-    manipulateImage("invert");
-  };
-  document.querySelector('#chroma').onclick = function() {
-    manipulateImage("chroma");
-  };
-  document.querySelector('#greyscale').onclick = function() {
-    manipulateImage("greyscale");
-  };
-  document.querySelector('#vibrant').onclick = function() {
-    manipulateImage("vibrant");
-  };
-  document.querySelector('#revert').onclick = function() {
-    revertImage();
-  };
-
-
 
   scale = document.getElementById('scale');
   scale.addEventListener('change', doTransform, false);
@@ -164,6 +149,22 @@ function prepareExample() {
 
   download = document.getElementById('img-download');
   download.addEventListener('click', prepareDownload, false);
+
+  document.querySelector('#invert').onclick = function() {
+    manipulateImage("invert");
+  };
+  // document.querySelector('#chroma').onclick = function() {
+  //   manipulateImage("chroma");
+  // };
+  document.querySelector('#greyscale').onclick = function() {
+    manipulateImage("greyscale");
+  };
+  document.querySelector('#vibrant').onclick = function() {
+    manipulateImage("vibrant");
+  };
+  document.querySelector('#revert').onclick = function() {
+    revertImage();
+  };
 
   ctx.textAlign = 'center';
   ctx.lineWidth = 4;
@@ -260,4 +261,11 @@ function wrapTextBottom(ctx, inputBottom, x, y, maxWidth, lineHeight) {
   }
   ctx.strokeText(line, x, y);
   ctx.fillText(line, x, y);
+}
+
+function filter(){
+  // http://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
+
+
+
 }

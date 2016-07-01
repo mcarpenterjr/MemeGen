@@ -1,6 +1,6 @@
  // Image manipulation logic from github.com/jwill/psychic-lana
 
-function getManipFunc(type) {
+function manipulate(type) {
 
   var func = function() {};
 
