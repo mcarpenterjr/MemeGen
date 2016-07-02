@@ -64,37 +64,17 @@ function prepareExample() {
   }, false);
 
   var controls = document.getElementById('controls');
-  var save = document.getElementById('save');
-  save.addEventListener('click', function(e) {
-    controls.style.display = 'none';
-    document.getElementById('spinner-div').style.display = 'inline';
-    var data = canvas.toDataURL();
-
-    request = $.ajax({
-      url: "/meme/save",
-      type: "post",
-      data: data
-    });
-
-    // callback handler that will be called on success
-    request.done(function(response, textStatus, jqXHR) {
-      // log a message to the console
-      window.location.href = '/meme/view/' + response;
-    });
-
-  }, false);
-
   // greys out the buttons while manipulation is happening
   // un-greys out the buttons when the manipulation is done
   function toggleButtonsAbledness() {
     var buttons = document.querySelectorAll('button');
     for (var i = 0; i < buttons.length; i++) {
       if (buttons[i].hasAttribute('disabled')) {
-        buttons[i].removeAttribute('disabled')
+        buttons[i].removeAttribute('disabled');
       } else {
         buttons[i].setAttribute('disabled', null);
       }
-    };
+    }
   }
 
   function manipulateImage(type) {
@@ -125,17 +105,17 @@ function prepareExample() {
       var image = e.data;
       if (image) return ctx.putImageData(e.data, 0, 0);
       console.log("No manipulated image returned");
-    }
+    };
 
     imageWorker.onerror = function(error) {
       function WorkerException (message) {
         this.name = 'WorkerException';
         this.message = message;
-      };
+      }
       throw new WorkerException('Worker error.');
     };
 
-  };
+  }
 
   function revertImage() {
     return ctx.putImageData(original, 0, 0);
