@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#212121">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/materialize.css" media="screen,projection">
   <link rel="stylesheet" href="css/sweetalert.css">
@@ -20,7 +20,7 @@
     <div class="section">
       <div class="row">
         <div class="col s12 card-panel grey darken-4 z-depth-2 white-text">
-          <span class="card-title col s12"><h3>Make Dank MEMEs</h3></span>
+          <span class="card-title col s12"><h4>Make Dank MEMEs</h4></span>
         </div>
       </div>
       <div class="row">
@@ -42,7 +42,7 @@
             </div>
             <div class="col s6">
               <p class="range-field">
-                <input id="rotate" type="range" min="-180" max="180" value="0" step="1" />
+                <input id="rotate" type="range" min="-180" max="180" value="0" step="5" />
                 <label for="rotate">Image Rotation</label>
               </p>
             </div>
@@ -61,50 +61,57 @@
           </div>
 
           <!-- Image Filters -->
-          <div class="row center-align hide-on-small-only">
-            <button class="btn waves-effect orange darken-1" id="invert">Invert</button>
-            <button class="btn waves-effect orange darken-1" id="greyscale">Greyscale</button>
-            <button class="btn waves-effect orange darken-1" id="vibrant">Vibrant</button>
-            <button class="btn waves-effect orange darken-1" id="nightvision">NightVision</button>
-            <button class="btn waves-effect red" id="revert">Revert to Original</button>
-          </div>
-          <div class="row center-align hide-on-med-and-up">
+          <div class="row center-align">
             <button class="btn waves-effect orange darken-1" id="invert">Invert</button>
             <button class="btn waves-effect orange darken-1" id="greyscale">Greyscale</button>
             <button class="btn waves-effect orange darken-1" id="vibrant">Vibrant</button>
           </div>
-          <div class="row center-align hide-on-med-and-up">
+          <div class="row center-align">
             <button class="btn waves-effect orange darken-1" id="nightvision">NightVision</button>
             <button class="btn waves-effect red" id="revert">Revert to Original</button>
           </div>
 
           <!-- File Functions -->
-          <div class="row">
-            <div class="file-field input-field col push-m3 s12 m6">
-              <div class="btn red">
-                <span>File</span>
-                <input type="file" capture="camera" id="fileInput" name="imageLoader">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+          <div class="row hide-on-small-only">
+            <div class="col s12">
+                <div class="file-field input-field col s8 m6">
+                  <div class="btn red">
+                    <span>File</span>
+                    <input type="file" capture="camera" id="fileInput" name="imageLoader">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              <div class="right">
+                <button class="waves-effect btn red" href="" id="img-download" download="you-got-memed.png">
+                  <i class="fa fa-download right"></i>download</button>
               </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col s12">
-              <div class="left">
-                <button class="waves-effect btn red" id="save">save
-                  <i class="fa fa-floppy-o right"></i>
-                </button>
+          <div class="row hide-on-med-and-up">
+            <div class="row">
+                <div class="file-field input-field col s10 push-s1">
+                  <div class="btn red">
+                    <span>File</span>
+                    <input type="file" capture="camera" id="fileInput" name="imageLoader">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
               </div>
-              <div class="right">
+              <div class="row">
+                <div class="col s12">
+                  <div class="center-align">
                 <a class="waves-effect btn red" href="" id="img-download" download="you-got-memed.png">
                   <i class="fa fa-download right"></i>download</a>
+                </div>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

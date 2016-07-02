@@ -42,11 +42,11 @@
    }
 
    function makePixelNightVision(r, g, b, a) {
-     brightness = 0.2
-     g = (b * 0.1 + (g * brightness + r * 0.2))
-     r = 0
-     b = 0
-     return [r, g, b, a]
+     brightness = 0.2;
+     g = (b * 0.1 + (g * brightness + r * 0.2));
+     r = 0;
+     b = 0;
+     return [r, g, b, a];
    }
 
    switch (type) {
